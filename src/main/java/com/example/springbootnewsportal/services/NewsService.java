@@ -1,6 +1,8 @@
 package com.example.springbootnewsportal.services;
+
 import com.example.springbootnewsportal.entities.News;
 import com.example.springbootnewsportal.web.models.news.NewsFilter;
+
 import java.util.List;
 
 public interface NewsService {
@@ -9,9 +11,9 @@ public interface NewsService {
 
     News create(News news);
 
-    News update(News news, String userPassword);
+    News update(News news);
 
-    void deleteById(Long id, String userPassword);
+    void deleteById(Long id);
 
     List<News> filterBy(NewsFilter NewsFilter);
 }

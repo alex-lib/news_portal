@@ -1,4 +1,5 @@
 package com.example.springbootnewsportal.mappers.user;
+
 import com.example.springbootnewsportal.entities.User;
 import com.example.springbootnewsportal.web.models.user.UserListResponse;
 import com.example.springbootnewsportal.web.models.user.UserRequest;
@@ -7,6 +8,7 @@ import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

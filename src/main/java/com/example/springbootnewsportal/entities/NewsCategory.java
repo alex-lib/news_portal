@@ -1,7 +1,9 @@
 package com.example.springbootnewsportal.entities;
+
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,5 @@
 package com.example.springbootnewsportal.mappers.newscategory;
+
 import com.example.springbootnewsportal.entities.NewsCategory;
 import com.example.springbootnewsportal.web.models.newscategory.NewsCategoryListResponse;
 import com.example.springbootnewsportal.web.models.newscategory.NewsCategoryRequest;
@@ -7,6 +8,7 @@ import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

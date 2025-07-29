@@ -1,6 +1,9 @@
 package com.example.springbootnewsportal.entities;
+
+import com.example.springbootnewsportal.entities.roles.Role;
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,4 +41,9 @@ public class User {
     @ToString.Exclude
     @Builder.Default
     private List<NewsCategory> newsCategories = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<Role> roles = new ArrayList<>();
 }

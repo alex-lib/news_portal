@@ -1,4 +1,5 @@
 package com.example.springbootnewsportal.mappers.news;
+
 import com.example.springbootnewsportal.entities.News;
 import com.example.springbootnewsportal.entities.NewsCategory;
 import com.example.springbootnewsportal.entities.User;
@@ -10,6 +11,7 @@ import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
+
 import java.util.ArrayList;
 import java.util.List;
 

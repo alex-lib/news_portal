@@ -15,6 +15,6 @@ public class UserRequest {
     private String name;
 
     @NotBlank(message = "Password must be specified")
-    @Size(min = 5, max = 10, message = "Password must contain between {min} and {max} characters")
+    @Size(min = 4, max = 10, message = "Password must contain between {min} and {max} characters")
     private String password;
 }

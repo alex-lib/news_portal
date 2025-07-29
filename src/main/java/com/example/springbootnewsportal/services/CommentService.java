@@ -1,5 +1,7 @@
 package com.example.springbootnewsportal.services;
+
 import com.example.springbootnewsportal.entities.Comment;
+
 import java.util.List;
 
 public interface CommentService {
@@ -10,7 +12,7 @@ public interface CommentService {
 
     Comment create(Comment comment);
 
-    Comment update(Comment comment, String userPassword);
+    Comment update(Comment comment);
 
-    void deleteById(Long id, String userPassword);
+    void deleteById(Long id);
 }

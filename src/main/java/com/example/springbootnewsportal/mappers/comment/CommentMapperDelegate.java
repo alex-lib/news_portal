@@ -1,5 +1,6 @@
 package com.example.springbootnewsportal.mappers.comment;
 import com.example.springbootnewsportal.entities.Comment;
+import com.example.springbootnewsportal.security.AuthenticationService;
 import com.example.springbootnewsportal.services.NewsService;
 import com.example.springbootnewsportal.services.UserService;
 import com.example.springbootnewsportal.web.models.comments.CommentRequest;
@@ -14,11 +15,14 @@ public abstract class CommentMapperDelegate implements CommentMapper {
     @Autowired
     private NewsService newsService;
 
+    @Autowired
+    private AuthenticationService authenticationService;
+
     @Override
     public Comment requestToComment(CommentRequest commentRequest) {
         Comment comment = new Comment();
         comment.setComment(commentRequest.getComment());
-        comment.setUserCreatorComment(userService.findById(commentRequest.getUserId()));
+        comment.setUserCreatorComment(userService.findById(authenticationService.getCurrentUser().getId()));
         comment.setNews(newsService.findById(commentRequest.getNewsId()));
         return comment;
     }

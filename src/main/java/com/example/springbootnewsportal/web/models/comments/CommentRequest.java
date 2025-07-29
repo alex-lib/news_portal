@@ -13,10 +13,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CommentRequest {
 
-    @NotNull(message = "User's ID must be provided")
-    @Positive(message = "User's ID must be more than 0")
-    private Long userId;
-
     @NotBlank(message = "Comment must be provided")
     private String comment;
 

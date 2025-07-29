@@ -1,4 +1,5 @@
 package com.example.springbootnewsportal.services.impl;
+
 import com.example.springbootnewsportal.entities.Comment;
 import com.example.springbootnewsportal.entities.News;
 import com.example.springbootnewsportal.entities.User;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.text.MessageFormat;
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional
     @Override
-    public Comment update(Comment comment, String userPassword) {
+    public Comment update(Comment comment) {
         User user = userService.findById(comment.getUserCreatorComment().getId());
         Comment existedComment = findById(comment.getId());
         BeanUtils.copyNonNullProperties(comment, existedComment);
@@ -62,7 +64,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional
     @Override
-    public void deleteById(Long id, String userPassword) {
+    public void deleteById(Long id) {
         commentRepository.deleteById(id);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.springbootnewsportal.validation.user;
+
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
+
 import java.lang.annotation.*;
 
 @Documented

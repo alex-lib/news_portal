@@ -1,4 +1,5 @@
 package com.example.springbootnewsportal.services.impl;
+
 import com.example.springbootnewsportal.entities.News;
 import com.example.springbootnewsportal.entities.User;
 import com.example.springbootnewsportal.exceptions.EntityNotFoundException;
@@ -13,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.text.MessageFormat;
 import java.util.List;
 
@@ -45,7 +47,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Transactional
     @Override
-    public News update(News news, String userPassword) {
+    public News update(News news) {
         User user = userService.findById(news.getUserCreatorNews().getId());
         News existedNews = findById(news.getId());
         BeanUtils.copyNonNullProperties(news, existedNews);
@@ -55,7 +57,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Transactional
     @Override
-    public void deleteById(Long id, String userPassword) {
+    public void deleteById(Long id) {
         newsRepository.deleteById(id);
     }
 }

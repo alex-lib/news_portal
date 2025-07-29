@@ -1,4 +1,5 @@
 package com.example.springbootnewsportal.mappers.comment;
+
 import com.example.springbootnewsportal.entities.Comment;
 import com.example.springbootnewsportal.web.models.comments.CommentListResponse;
 import com.example.springbootnewsportal.web.models.comments.CommentRequest;
@@ -7,6 +8,7 @@ import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

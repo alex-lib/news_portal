@@ -1,6 +1,8 @@
 package com.example.springbootnewsportal.services;
+
 import com.example.springbootnewsportal.entities.NewsCategory;
 import com.example.springbootnewsportal.web.models.newscategory.NewsCategoryFilter;
+
 import java.util.List;
 
 public interface NewsCategoryService {
@@ -12,4 +14,8 @@ public interface NewsCategoryService {
     NewsCategory findById(Long id);
 
     List<NewsCategory> filterBy(NewsCategoryFilter newsCategoryFilter);
+
+    NewsCategory update(NewsCategory newsCategory, Long id);
+
+    void deleteById(Long id);
 }

@@ -1,28 +1,30 @@
 package com.example.springbootnewsportal.mappers.news;
+
 import com.example.springbootnewsportal.entities.Comment;
 import com.example.springbootnewsportal.entities.News;
+import com.example.springbootnewsportal.security.AuthenticationService;
 import com.example.springbootnewsportal.services.CommentService;
 import com.example.springbootnewsportal.services.NewsCategoryService;
-import com.example.springbootnewsportal.services.NewsService;
 import com.example.springbootnewsportal.services.UserService;
 import com.example.springbootnewsportal.web.models.comments.CommentResponse;
 import com.example.springbootnewsportal.web.models.news.NewsRequest;
 import com.example.springbootnewsportal.web.models.news.NewsResponse;
 import com.example.springbootnewsportal.web.models.news.NewsResponseForOneNews;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class NewsMapperDelegate implements NewsMapper {
 
     @Autowired
+    private AuthenticationService authenticationService;
+
+    @Autowired
     private NewsCategoryService newsCategoryService;
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private NewsService newsService;
 
     @Autowired
     private CommentService commentService;
@@ -32,7 +34,7 @@ public abstract class NewsMapperDelegate implements NewsMapper {
         News news = new News();
         news.setTitle(newsRequest.getTitle());
         news.setContent(newsRequest.getContent());
-        news.setUserCreatorNews(userService.findById(newsRequest.getUserId()));
+        news.setUserCreatorNews(userService.findById(authenticationService.getCurrentUser().getId()));
         news.setNewsCategory(newsCategoryService.findByNameNewsCategory(newsRequest.getNewsCategory()));
         return news;
     }

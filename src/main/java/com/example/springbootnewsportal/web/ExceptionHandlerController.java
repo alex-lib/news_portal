@@ -1,7 +1,9 @@
 package com.example.springbootnewsportal.web;
+
 import com.example.springbootnewsportal.exceptions.CommentAccessException;
 import com.example.springbootnewsportal.exceptions.EntityNotFoundException;
 import com.example.springbootnewsportal.exceptions.NewsAccessException;
+import com.example.springbootnewsportal.exceptions.UserAccessException;
 import com.example.springbootnewsportal.web.models.errors.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -11,8 +13,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
 import java.util.List;
 import java.util.stream.Collectors;
+
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @RestControllerAdvice
@@ -38,13 +42,19 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(CommentAccessException.class)
     public ResponseEntity<ErrorResponse> handleAccessException(CommentAccessException ex) {
-        log.error("Password is incorrect: {}", ex.getMessage());
+        log.error("Access is denied: {}", ex.getMessage());
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse(ex.getMessage()));
     }
 
     @ExceptionHandler(NewsAccessException.class)
     public ResponseEntity<ErrorResponse> handleNewsAccessException(NewsAccessException ex) {
-        log.error("Password is incorrect: {}", ex.getMessage());
+        log.error("Access is denied: {}", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse(ex.getMessage()));
+    }
+
+    @ExceptionHandler(UserAccessException.class)
+    public ResponseEntity<ErrorResponse> handleUserAccessException(UserAccessException ex) {
+        log.error("Access is denied: {}", ex.getMessage());
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse(ex.getMessage()));
     }
 }

@@ -6,8 +6,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CheckNewsAccess {
+public @interface CheckDeleteNewsAccess {
 
-    String id() default "";
-    String password() default "";
+    long id() default 0L;
 }

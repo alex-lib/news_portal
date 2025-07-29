@@ -1,7 +1,9 @@
 package com.example.springbootnewsportal.services;
+
 import com.example.springbootnewsportal.entities.News;
 import com.example.springbootnewsportal.web.models.news.NewsFilter;
 import org.springframework.data.jpa.domain.Specification;
+
 import java.time.Instant;
 
 public interface NewsSpecification {
